@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(./logo6.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #p{
+            color:rgba(252, 251, 251, 0.911);
+            font-size: 35px;
+            margin-left:10px;
+            margin-bottom: 0px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        #marq{
+            width: 379px;
+            font-size: 25px;
+            color: rgb(4, 1, 14);
+            border: 10px black double;
+            background-color: rgb(168, 168, 58);
+            margin-top: 70px;
+            margin-left: 488px;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            font-style: calc(dolor);
+            background-image: url(./logo3.jpg);
+        }
+        #marqbott{
+            width: 379px;
+            font-size: 25px;
+            color: rgb(4, 1, 14);
+            border: 10px black double;
+            background-color: rgb(168, 168, 58);
+            margin-top: 5px;
+            margin-left: 488px;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            font-style: calc(dolor);
+            background-image: url(./logo3.jpg);
+        } 
+        #fieldset{
+            width: fit-content;
+            margin: 0px 450px 1px 488px;
+            border: 10px black double;
+            background-image: url(./logo3.jpg);
+            background-size: cover;
+        }
+        .button{
+            margin-left: 60px;
+            border-radius: 20px;
+            margin-top: 20px;
+            background-color:  rgb(241, 228, 228);
+            color: rgb(27, 26, 26);
+            font-size: 18px;
+            font-style: italic;
+            border: 5px black double;
+        }
+        .button:hover{
+            background-color: rgb(236, 213, 156);
+        }
+        .box{
+            border-radius: 20px;
+            border: 5px black double;
+            background-color: rgb(241, 228, 228);
+            height: 22px;
+            padding-left: 10px;
+        }
+        .words{
+            font-size: 20px;
+            color: rgb(12, 11, 11);
+            font-family: 'Times New Roman', Times, serif;
+            font-style:italic;
+        }
+        #terms{
+            font-size: 19px;
+            color: rgb(233, 19, 19);
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #checkbox{
+            margin-top: 10px;
+            margin-left:  20px;
+        }
+        #error{
+            color: rgb(250, 10, 22);
+            font-size: 20px;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        function signup(){
+            let email=document.getElementById("mail").value;
+            let Phone_number=document.getElementById("phone").value;
+            let pass=document.getElementById("password").value;
+            let confirm_password=document.getElementById("confirm").value;
+
+            // Email Validation
+            let flag_mail=false;
+            for(let i=0;i<email.length;i++){
+                if(email[i]=='@'){
+                    flag_mail=true;
+                }
+            }
+
+            // Phone Number Validation
+            let flag_phone=false;
+            if((6000000000<=Phone_number)&&(Phone_number<=9999999999)){
+                flag_phone=true;
+            }
+
+            // Password Validation
+            let len=pass.length;
+            let upper=0;
+            let lower=0;
+            let num=0;
+            let special=0;
+            let flag_pass=false;
+            for(let i=0;i<len;i++){
+                if(('A'<=pass[i])&&(pass[i]<='Z')){
+                    upper++;
+                }else if(('a'<=pass[i])&&(pass[i]<='z')){
+                    lower++;
+                }else if(('0'<=pass[i])&&(pass[i]<='9')){
+                    num++;
+                }else{
+                    special++
+                }
+            }
+            if((8<=len)&&(len<=16)&&(upper>=1)&&(lower>=1)&&(num>=1)&&(special>=1)){
+                flag_pass=true;
+            }
+
+            // Confirm Password Validation
+            let flag_confirm=false;
+            if(pass==confirm_password){
+                flag_confirm=true;
+            }
+
+            if((flag_phone==true)&&(flag_mail==true)&&(flag_pass==true)&&(flag_confirm==true)){
+                window.location.href="loginpg.html";
+            }else{
+                document.getElementById("error").innerHTML="*Enter valid details";
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <p id="p">SpotStar</p>
+    <marquee id="marq">"CREATE YOUR OWN ACCOUNT"</marquee>
+    <fieldset id="fieldset">
+       <table>
+        <tr>
+            <td class="words">Name:</td>
+            <td><input type="text" class="box" ></td>
+        </tr>
+        <tr>
+            <td class="words">E-mail:</td>
+            <td><input type="email"class="box" id="mail"></td>
+        </tr>
+        <tr>
+            <td class="words">Phone_No:</td>
+            <td><input type="number"class="box" id="phone"></td>
+        </tr>
+        <tr>
+            <td class="words">Password:</td>
+            <td><input type="password"class="box" id="password"></td>
+        </tr>
+        <tr>
+            <td class="words">Confirm password:</td>
+            <td><input type="password"class="box" id="confirm"></td>
+        </tr>
+       </table>
+            <b><input type="checkbox" id="checkbox"><label id="terms">Terms & Condition</label></b><br>
+            <button class="button">RESET</button>
+            <button class="button" onclick="signup()">SIGNUP</button>
+            <p id="error"></p>
+    </fieldset>
+    <marquee id="marqbott">"LOGIN AND VISIT MY SPOTSTAR !"</marquee>
+</body>
+</html>

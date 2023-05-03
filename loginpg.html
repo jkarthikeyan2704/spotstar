@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-image: url(./logo5.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #h2{
+            color: azure;
+            font-style: italic;
+            font-size: 60px;
+            margin-left: 600px;
+            text-shadow: -7px   4px black;
+        }
+        #marquee{
+            height: 30px;
+            width: 500px;
+            border: 4px black solid;
+            margin-top: 0px;
+            margin-left: 430px;
+            margin-bottom: 5px;
+            background-color:rgb(198, 225, 233);
+            font-size: 25px;
+            border-radius: 20px;
+            background-image: url(./lgbg.jpg);
+        }
+        #fieldset{
+            width:fit-content ;
+            margin: 10px 400px 400px 540px;
+            border-radius: 40px;
+            border: 10px black double;
+            background-color:rgb(198, 225, 233);
+            background-image: url(./lgbg.jpg);
+            background-repeat: no-repeat;
+        }
+        #user{
+            margin-top: 10px;
+            border: 2px black solid;
+            border-radius: 15px;
+            padding-left: 40px;
+            height: 25px;
+            font-size: medium;
+        }
+        #logo{
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 17px;
+        }
+        #pass{
+            margin-top: 10px;
+            border: 2px black solid;
+            border-radius: 15px;
+            padding-left: 40px;
+            height: 25px;
+            font-size: medium;
+        }
+        #key{
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 17px
+        }
+        #help{
+            margin-left: 18px 
+        }
+        #forgot{
+            margin-left: 50px
+        }
+        #cancel{
+            font-size: 15px;
+            margin-left: 10px;
+            border-radius: 30px;
+            color: red;
+        }
+        #cancel:hover{
+            background-color: lightcoral;
+        }
+        #login{
+            font-size: 15px;
+            margin-left: 60px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 30px;
+            color: green;
+        }
+        #login:hover{
+            background-color: lightgreen;
+        }
+        #p{
+            margin-bottom: 5px;
+            margin-left: 35px;
+            font-size: 22px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #create{
+            margin-left: 45px;
+            font-size:16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+    <script>
+        function password(){
+         let pass=document.getElementById("pass").value;
+         let len=pass.length;
+            let upper=0;
+            let lower=0;
+            let num=0;
+            let special=0;
+            for(let i=0;i<len;i++){
+                if(('A'<=pass[i])&&(pass[i]<='Z')){
+                    upper++;
+                }else if(('a'<=pass[i])&&(pass[i]<='z')){
+                    lower++;
+                }else if(('0'<=pass[i])&&(pass[i]<='9')){
+                    num++;
+                }else{
+                    special++
+                }
+            }
+            if((8<=len)&&(len<=16)&&(upper>=1)&&(lower>=1)&&(num>=1)&&(special>=1)){
+                window.location.href="movie&musicpg.html"
+            }else{
+                alert("Invalid user!")
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="main">
+    <p id="h2">SpotStar <p>
+    <marquee id="marquee">"LOGIN AND VISIT MY SPOTSTAR"</marquee>
+    <fieldset id="fieldset">
+        <i class="fa-solid fa-user"id="logo"></i>
+    <input type="text"placeholder="UserName"id="user"><br>
+        <i class="fa-solid fa-key"id="key"></i>
+    <input type="password"placeholder="Password"id="pass"><br><br>
+    <a href=""id="help">Help?</a>
+    <a href="./valid.html"id="forgot">Forgot Password?</a><br><br>
+    <button id="cancel">CANCEL</button>
+    <button id="login" onclick="password()">LOGIN</button>
+    <p id="p">Are you new user?</p>
+    <a href="./creatAC.html"id="create">CREATE ACCOUNT</a>
+    </fieldset>
+</div>
+</body>
+</html>
